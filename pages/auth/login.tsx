@@ -62,56 +62,61 @@ const LoginPage = () => {
 
     const onSubmit = () => {
         setLoad(true)
-        service.getOAuth2Token({
-            captcha_token,
-            grant_type,
-            username,
-            password,
-            scope,
-        }).then(res => {
-            if(res?.status === 200) {
-                res?.json().then(data => {
-                    if(saveMe) {
-                        Cookies.set('adtbot-console-access-token', data?.access_token) //access_token
-                        Cookies.set('adtbot-console-refresh-token', data?.refresh_token) //refresh_token
-                        dispatch(updateTokens({access: data?.access_token, refresh: data?.refresh_token}))
-                        // if(data?.is_first_login === true) {
-                        //     Router.push('/')
-                        // }
-                        // if(data?.is_first_login === false) {
-                        //     Router.push('/account/bots')
-                        // }
-                        Router.push('/')
-                    } else {
-                        Cookies.remove('adtbot-console-access-token') //access_token
-                        Cookies.remove('adtbot-console-refresh-token') //refresh_token
-                        dispatch(updateTokens({access: data?.access_token, refresh: data?.refresh_token}))
-                        // if(data?.is_first_login === true) {
-                        //     Router.push('/')
-                        // }
-                        // if(data?.is_first_login === false) {
-                        //     Router.push('/account/bots')
-                        // }
-                        Router.push('/')
-                    }
-                    
-                })
-            } 
-            // else {
-            //     res?.json().then(data => {
-            //         if(data?.status === 20) {
-            //             setTotp_token(data?.totp_verify_token)
-            //             openTwoAuthModal()
-            //         } else {
-            //             backendErrorStatuses(data?.status)
-            //             notify('Произошла ошибка, проверьте пожалуйста данные', 'ERROR')
-            //             recapRef?.reset()
-            //         }
-            //     })
-            // } 
-        }).finally(() => {
-            setLoad(false)
-        })
+        if(username === 'demo@adtbot.com' && password === 'demouser') {
+            service.getOAuth2Token({
+                captcha_token,
+                grant_type,
+                username,
+                password,
+                scope,
+            }).then(res => {
+                if(res?.status === 200) {
+                    res?.json().then(data => {
+                        if(saveMe) {
+                            Cookies.set('adtbot-console-access-token', data?.access_token) //access_token
+                            Cookies.set('adtbot-console-refresh-token', data?.refresh_token) //refresh_token
+                            dispatch(updateTokens({access: data?.access_token, refresh: data?.refresh_token}))
+                            // if(data?.is_first_login === true) {
+                            //     Router.push('/')
+                            // }
+                            // if(data?.is_first_login === false) {
+                            //     Router.push('/account/bots')
+                            // }
+                            Router.push('/')
+                        } else {
+                            Cookies.remove('adtbot-console-access-token') //access_token
+                            Cookies.remove('adtbot-console-refresh-token') //refresh_token
+                            dispatch(updateTokens({access: data?.access_token, refresh: data?.refresh_token}))
+                            // if(data?.is_first_login === true) {
+                            //     Router.push('/')
+                            // }
+                            // if(data?.is_first_login === false) {
+                            //     Router.push('/account/bots')
+                            // }
+                            Router.push('/')
+                        }
+                        
+                    })
+                } 
+                // else {
+                //     res?.json().then(data => {
+                //         if(data?.status === 20) {
+                //             setTotp_token(data?.totp_verify_token)
+                //             openTwoAuthModal()
+                //         } else {
+                //             backendErrorStatuses(data?.status)
+                //             notify('Произошла ошибка, проверьте пожалуйста данные', 'ERROR')
+                //             recapRef?.reset()
+                //         }
+                //     })
+                // } 
+            }).finally(() => {
+                setLoad(false)
+            })
+        } else {
+            notify('Не верные данные', 'ERROR')
+        }
+        
     }
 
 
