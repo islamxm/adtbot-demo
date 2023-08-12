@@ -1,0 +1,21 @@
+.wrapper {
+    .info {
+        position: absolute;
+        top: 12px;
+        right: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: -10px;
+        margin-right: -10px;
+        
+        .item {
+            margin: 0 10px;
+        }
+    }
+}

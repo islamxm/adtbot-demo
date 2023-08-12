@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+
+    .body {
+        max-width: 529px;
+        // width: 100%;
+        margin-left: -7.5px;
+        margin-right: -7.5px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -15px;
+        .item {
+            width: calc((100% / 5) - 15px);
+            margin: 0 7.5px 15px 7.5px; 
+            font-size: 14px;
+            line-height: 19px;
+            color: #000;
+        }
+    }
+
+    .action {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+
+        .body {
+
+            .item {
+                width: calc((100% / 3) - 15px);
+            }
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .wrapper {
+        .body {
+            .item {
+                width: calc((100% / 2) - 15px);
+            }
+        }
+    }
+}

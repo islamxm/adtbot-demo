@@ -1,0 +1,30 @@
+.wrapper {
+    div {
+        font-size: 16px;
+    line-height: 21px;
+    }
+    
+    .balance {
+        font-size: 18px;
+        line-height: 25px;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    .pb {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+// @media (max-width: 768px) {
+//     .wrapper {
+        
+//         div {
+//             font-size: 14px;
+//         }
+//     }
+// }
+
