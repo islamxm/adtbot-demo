@@ -90,8 +90,24 @@ const MainWrapper = ({
     }, [socket, ])
 
 
-    useEffect(() => {
-        if(access && dispatch) {
+    // useEffect(() => {
+    //     if(access && dispatch) {
+    //         service.getUserData(access).then(res => {
+    //             console.log(res)
+    //             if(res && res?.is_demo_account === true) {
+    //                 dispatch(updateUserData(res))
+    //             } else {
+    //                 dispatch(updateTokens({access: null, refresh: null}))
+    //                 dispatch(updateUserData(null))
+    //                 Router.replace('/auth/login')
+
+    //             }
+    //         })
+    //     }
+    // }, [access, dispatch])
+
+    const getUserData = () => {
+        if(access) {
             service.getUserData(access).then(res => {
                 console.log(res)
                 if(res && res?.is_demo_account === true) {
@@ -100,11 +116,23 @@ const MainWrapper = ({
                     dispatch(updateTokens({access: null, refresh: null}))
                     dispatch(updateUserData(null))
                     Router.replace('/auth/login')
-
+    
                 }
             })
         }
-    }, [access, dispatch])
+        
+    }
+
+    useEffect(() => {
+        let interval: any;
+        if(access) {
+            getUserData()
+            interval = setInterval(getUserData, 3600000)
+        }
+        return () => {
+            clearInterval(interval)
+        }
+    }, [access])
 
 
 

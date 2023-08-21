@@ -69,6 +69,10 @@ const Sidebar:FC<sidebarPropsTypes> = ({
     }
 
     useEffect(() => {
+        console.log(userData)
+    }, [userData])
+
+    useEffect(() => {
         if(settingsOpen) {
             setIsHidden(false)
         }

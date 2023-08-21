@@ -32,9 +32,9 @@ const service = new ApiService();
 
 const buyOpts = [
     {value: '1', label: 'Gate.io'},
-    {value: '2', label: 'MEXC'},
+    {value: '4', label: 'MEXC'},
     {value: '3', label: 'KuCoin'},
-    {value: '4', label: 'Huobi'},
+    {value: '2', label: 'Huobi'},
 ]
 
 
@@ -79,7 +79,6 @@ const AddBotModal:FC<addBotModalPropsTypes> = ({
 
     useEffect(() => {
         if(data) {
-            console.log(data)
             setId(data?.bot_id)
 
             setMonitor(data?.bot_info?.monitor)

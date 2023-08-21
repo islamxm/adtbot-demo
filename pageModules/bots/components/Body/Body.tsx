@@ -239,7 +239,6 @@ const Body = () => {
 
     useEffect(() => {
         if(lastCreatedBot && access) {
-            console.log('UPDATE BOT')
             updateList()
         }
     }, [lastCreatedBot, access])

@@ -52,9 +52,7 @@ const TableRow:FC<tableRowPropsTypes> = ({bot, head, updateList, onEdit}) => {
     const [disableModal, setDisableModal] = useState(false)
     const [stopActiveModal, setStopActiveModal] = useState<boolean>(false)
 
-
     const toggleBody = () => setIsOpen(s => !s)
-
 
     useEffect(() => {
         if(bodyRef?.current) {
@@ -80,7 +78,6 @@ const TableRow:FC<tableRowPropsTypes> = ({bot, head, updateList, onEdit}) => {
             }).finally(() => setEnableLoad(false))
         }
     }
-
 
 
     const deleteBot = () => {

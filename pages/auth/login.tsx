@@ -168,7 +168,7 @@ const LoginPage = () => {
                     span={24}
                     md={12}>
                     <AuthForm
-                        title="И снова здравствуйте"
+                        title="Вход в демо"
                         >
                         <Row gutter={[15,15]}>
                             <Col span={24}>

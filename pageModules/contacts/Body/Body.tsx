@@ -18,13 +18,14 @@ const Body = () => {
     const {tokens: {access}} = useAppSelector(s => s)
     const [text, setText] = useState('')
     const [load, setLoad] = useState(false)
-
+    
     const addFeedback = useCallback(() => {
         if(access) {    
+            setLoad(true)
             service.addFeedback(text, access).then(res => {
                 if(res === true) {
                     notify('Фидбэк отправлен', 'SUCCESS')
-                    
+                    setText('')
                 } else {
                     notify('Произошла ошибка', 'ERROR')
                 }
