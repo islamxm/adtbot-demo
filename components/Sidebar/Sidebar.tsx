@@ -342,7 +342,7 @@ const Sidebar:FC<sidebarPropsTypes> = ({
                             ) : null
                         }
                         
-                        <Col span={24} className={styles.deposit}>
+                        {/* <Col span={24} className={styles.deposit}>
                             <div className={styles.action_item}>
                                 <Button
                                     style={{minWidth: 45, minHeight: 45}}
@@ -355,7 +355,7 @@ const Sidebar:FC<sidebarPropsTypes> = ({
                                     rounded={isHidden}
                                     />
                             </div>
-                        </Col>
+                        </Col> */}
                         {/* <Col span={24} className={styles.history}>
                             <div className={styles.action_item}>
                                 <Button
@@ -369,7 +369,7 @@ const Sidebar:FC<sidebarPropsTypes> = ({
                                     />
                             </div>
                         </Col> */}
-                        <Col span={24} className={styles.addbot}>
+                        {/* <Col span={24} className={styles.addbot}>
                             <div className={styles.action_item}>
                                 <Button
                                     onClick={openAddBotModal}
@@ -381,7 +381,7 @@ const Sidebar:FC<sidebarPropsTypes> = ({
                                     fill={!isHidden}
                                     />
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                     </Col>
                     
