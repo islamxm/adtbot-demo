@@ -19,8 +19,8 @@ import AddBotModal from '@/modals/AddBotModal/AddBotModal';
 import { useAppDispatch } from '@/hooks/useTypesRedux';
 import { updateSenseValue } from '@/store/actions';
 import { useSubscription, gql, useApolloClient } from '@apollo/client';
-import notify from '@/helpers/notify';
 import Loader from '@/components/Loader/Loader';
+import DepositModal from '@/modals/DepositModal/DepositModal';
 
 const service = new ApiService();
 
@@ -147,9 +147,10 @@ const switchTableSize = (value: any) => {
 
 
 const Body = () => {
-    const {tokens: {access}, lastCreatedBot, hideSensValue, socket} = useAppSelector(s => s)
+    const {tokens: {access}, lastCreatedBot, hideSensValue, socket, userData} = useAppSelector(s => s)
     const dispatch = useAppDispatch()
 
+    const [depositModal, setDepositModal] = useState(false)
 
 
     const [tableSize, setTableSize] = useState('1')
@@ -294,19 +295,19 @@ const Body = () => {
         }
     }
 
-
     const openEdit = (data: any) => {
         setEditData(data)
         openAddBotModal()
     }
 
 
-
-
-
-
+    
     return (
         <div className={styles.wrapper}>
+            <DepositModal
+                open={depositModal}
+                onCancel={() => setDepositModal(false)}
+                />
             <AddBotModal
                 data={editData}
                 updateList={updateList}
@@ -315,9 +316,9 @@ const Body = () => {
                 />
             <StopBotModal/>
             <DeleteBotModal/>
-
-
-
+            {/* {
+                (userData?.has_trial === false && userData?.money === 0) && <WarnPanel/>
+            } */}
             <div className={styles.action}>
                 <Button
                     onClick={openAddBotModal} 
@@ -325,8 +326,6 @@ const Body = () => {
                     style={{paddingLeft: 30, paddingRight: 30}} 
                     text='Создать бот'/>
             </div>
-
-
             <div className='table'>
                 <div className="table-top">
                     <div className={styles.top}>

@@ -79,6 +79,7 @@ const AddBotModal:FC<addBotModalPropsTypes> = ({
 
     useEffect(() => {
         if(data) {
+            
             setId(data?.bot_id)
 
             setMonitor(data?.bot_info?.monitor)

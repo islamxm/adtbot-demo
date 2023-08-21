@@ -31,7 +31,7 @@ const DemoModal:FC<ModalFuncProps> = (props) => {
                                 variant={'simple'}
                                 text='Зарегистрироваться'
                                 fill
-                                onClick={() => window.location.replace('https://adtbot.console.com/auth/join')}
+                                onClick={() => window.location.replace('https://console.adtbot.com/auth/join')}
                                 />
                         </Col>
                     </Row>

@@ -1,16 +1,19 @@
 import styles from './WarnPanel.module.scss';
 import Button from '../Button/Button';
+import { ReactNode } from 'react';
 
 
-const WarnPanel = () => {
+const WarnPanel = ({
+    text = <p>На балансе платформы закончились средства.<br/>
+    Функционал платформы ограничен.</p>
+}: {
+    text?: ReactNode
+}) => {
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.body}>
-                <p>
-                На балансе платформы закончились средства.<br/>
-                Функционал платформы ограничен.
-                </p>
+                {text}
             </div>
             <div className={styles.action}>
                 <Button
