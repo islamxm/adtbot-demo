@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import { contentLayoutPropsTypes } from './types';
 import {FC} from 'react';
 import { useRouter } from 'next/router';
+import WarnPanel from '../WarnPanel/WarnPanel';
 
 const ContentLayout:FC<contentLayoutPropsTypes> = ({
     children,
@@ -19,6 +20,13 @@ const ContentLayout:FC<contentLayoutPropsTypes> = ({
                         />
                 </div>
                 <div className={styles.body}>
+                    <WarnPanel
+                        text={
+                            <p>
+                                Это демонстрационная версия консоли ADTBot. Функционал ограничен.
+                            </p>
+                        }
+                        />
                     {children}
                 </div>
             </div>

@@ -17,8 +17,9 @@ const WarnPanel = ({
             </div>
             <div className={styles.action}>
                 <Button
+                    onClick={() => window.location.replace('https://console.adtbot.com/auth/join')}
                     variant={'danger'}
-                    text='Пополнить'
+                    text='Зарегистрироваться'
                     fill
                     />
             </div>
